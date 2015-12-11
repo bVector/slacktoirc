@@ -24,7 +24,7 @@ def hello_world():
         text = str(request.form['text'])
         line = name + ': ' + text
         r.lpush('slacktoirc', line)
-        dog.increment('slacktoirc.name.%s'%(name))
+        dog.increment('slacktoirc.name.{0!s}'.format((name)))
         print name, text
     else:
         print 'invalid', str(request.form)
